@@ -1,4 +1,4 @@
-#Opérations sur matrices avec numpy
+#Operations sur matrices avec numpy
 # https://docs.scipy.org/doc/numpy-1.13.0/reference/
 
 import numpy
@@ -12,7 +12,7 @@ print("B : " + str(B))
 a = numpy.array(A)
 b = numpy.array(B)
 
-# Concaténez-les pour former un tableau c (a, b --> c)
+# Concatenez-les pour former un tableau c (a, b --> c)
 # array([[1, 2],
 #	[3, 4],
 #	[5, 6]])
@@ -24,7 +24,7 @@ c = numpy.concatenate((a,b))
 print("c = Concatenate a and b")
 print(c)
 
-# Divisez tous les éléments de c par 3 (sans utiliser de boucle)
+# Divisez tous les elements de c par 3 (sans utiliser de boucle)
 c = numpy.divide(c, 3)
 print("Divide C by 3")
 print(c)
@@ -41,13 +41,13 @@ print("Result M + N:")
 print(numpy.add(M, N))
 
 # Calculez le produit matriciel de M et N.
-# Vérifiez votre opération en calculant les premières cellules à la main
+# Verifiez votre operation en calculant les premieres cellules a la main
 print("Result M * N:")
 start_time = time.time()
 print(numpy.multiply(M, N))
 print("--- %s seconds ---" % (time.time() - start_time))
 
-# Bonus: Écrivez vous-mêmes une fonction de produit matriciel, avec des boucles imbriquées
+# Bonus: ecrivez vous-mêmes une fonction de produit matriciel, avec des boucles imbriquees
 def mat_mult(mat1, mat2):
 	new_mat = numpy.zeros(mat1.shape)
 	for l in range(0, mat1.shape[0]):
