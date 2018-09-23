@@ -46,30 +46,34 @@ print("La fonction exacte : " + str(a) + " * x + " + str(b))
 # ce qu'il se passe lorsque X est a 0");
 
 M = len(X)
+
 def cost():
-    print("cost")
+	print("cost")
+
 def partial_d(otheta, alpha):
-    dteta = 0
-    dalpha = 0
-    for i in range(0, M):
-        estimate = otheta[0] + (otheta[1] * X[i])
-        dalpha += (estimate - Y[i])
-        dteta += ((estimate - Y[i]) * X[i])
-    dalpha = otheta[0] - (1/M) * dalpha * alpha
-    dteta = otheta[1] - (1/M) * dteta * alpha
-    return [dalpha, dteta]
+	dteta = 0
+	dalpha = 0
+	for i in range(0, M):
+		estimate = otheta[0] + (otheta[1] * X[i])
+		dalpha += (estimate - Y[i])
+		dteta += ((estimate - Y[i]) * X[i])
+	dalpha = otheta[0] - (1/M) * dalpha * alpha
+	dteta = otheta[1] - (1/M) * dteta * alpha
+	return [dalpha, dteta]
 
 def fit(X, y, theta, alpha = 0.01, num_iters = 1500):
-    for i in range(0, num_iters):
-        theta = partial_d(theta, alpha)
-    return theta
+	for i in range(0, num_iters):
+		theta = partial_d(theta, alpha)
+	return theta
 
 theta = fit(X, Y, theta)
+
 print("Par approximation:")
 print(theta[1])
 print(theta[0])
+
 def predict(X, theta):
-    y = theta[0] * X + theta[1]
-    return (y)
+	y = theta[0] * X + theta[1]
+	return (y)
 value = 500
 print("Prediction sur une population de " + str(value) + " : " + str(predict(value, theta)))
